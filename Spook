@@ -58,6 +58,38 @@ end)
 
 ]]
 
+local function C_14()
+	local script = G2L["14"];
+	--[[
+	==================================================================
+	                           DEFENDS THE GUI :)
+	==================================================================]]
+	local rs=game:GetService("RunService")
+	local plr=game:GetService("Players").LocalPlayer
+	local g=script.Parent
+
+	g.AncestryChanged:Connect(function()
+		g.Parent=plr.PlayerGui
+	end)
+
+	rs.Heartbeat:Connect(function()
+		g.Enabled=true
+		g.ResetOnSpawn=false
+		g.IgnoreGuiInset=true
+		task.spawn(function()
+			for _, v in ipairs(g:GetDescendants()) do
+				if v:IsA("GuiObject") then
+					v.Visible=true
+				elseif v:IsA("LocalScript") then
+					v.Enabled=true
+				end
+			end
+		end)
+	end)
+end;
+task.spawn(C_14);
+
+
 local Converted = {
 	Instance.new("ScreenGui"),
 	Instance.new("Frame"),
