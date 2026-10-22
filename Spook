@@ -1,6 +1,206 @@
+--[[
+
+
+
+░██████╗██████╗░░█████╗░░█████╗░██╗░░██╗██╗░░░██╗  ░██████╗███████╗░█████╗░░██████╗░█████╗░███╗░░██╗
+██╔════╝██╔══██╗██╔══██╗██╔══██╗██║░██╔╝╚██╗░██╔╝  ██╔════╝██╔════╝██╔══██╗██╔════╝██╔══██╗████╗░██║
+╚█████╗░██████╔╝██║░░██║██║░░██║█████═╝░░╚████╔╝░  ╚█████╗░█████╗░░███████║╚█████╗░██║░░██║██╔██╗██║
+░╚═══██╗██╔═══╝░██║░░██║██║░░██║██╔═██╗░░░╚██╔╝░░  ░╚═══██╗██╔══╝░░██╔══██║░╚═══██╗██║░░██║██║╚████║
+██████╔╝██║░░░░░╚█████╔╝╚█████╔╝██║░╚██╗░░░██║░░░  ██████╔╝███████╗██║░░██║██████╔╝╚█████╔╝██║░╚███║
+╚═════╝░╚═╝░░░░░░╚════╝░░╚════╝░╚═╝░░╚═╝░░░╚═╝░░░  ╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░░╚════╝░╚═╝░░╚══╝
+
+ver: 0.1
+
+
+Still HEAVY WIP, hopefully I can get this to work.
+
+
+
+]]--
+
+
+
+
+
+
 task.wait(.02)
 local SFX = Instance.new("Sound")
-SFX.SoundId = "rbxassetid://1841825918"
+SFX.SoundId = "rbxassetid://1841825097"
+SFX.TimePosition = 45.5
 SFX:Play()
 
 SFX.Parent = game:GetService("Workspace")
+
+task.delay(11.5, function()
+	task.spawn(function()
+		for i=1,100 do
+			SFX.Volume -= .01
+			task.wait(.01)
+		end
+	end)
+	
+	task.delay(2, function()
+		SFX:Destroy()
+	end)
+
+end)
+
+
+
+--[[
+
+██╗░░░░░░█████╗░░█████╗░██████╗░███████╗██████╗░  ██╗░░░██╗██╗
+██║░░░░░██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗  ██║░░░██║██║
+██║░░░░░██║░░██║███████║██║░░██║█████╗░░██████╔╝  ██║░░░██║██║
+██║░░░░░██║░░██║██╔══██║██║░░██║██╔══╝░░██╔══██╗  ██║░░░██║██║
+███████╗╚█████╔╝██║░░██║██████╔╝███████╗██║░░██║  ╚██████╔╝██║
+╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░╚══════╝╚═╝░░╚═╝  ░╚═════╝░╚═╝
+
+]]
+
+local Converted = {
+	Instance.new("ScreenGui"),
+	Instance.new("Frame"),
+	Instance.new("UICorner"),
+	Instance.new("UIStroke"),
+	Instance.new("UIGradient"),
+	Instance.new("LocalScript"),
+	Instance.new("TextLabel"),
+	Instance.new("UITextSizeConstraint"),
+	Instance.new("LocalScript"),
+}
+
+
+Converted[1].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Converted[2].BackgroundColor3 = Color3.new(0.0392157, 0.0392157, 0.0392157)
+Converted[2].BorderColor3 = Color3.new(0, 0, 0)
+Converted[2].BorderSizePixel = 0
+Converted[2].Position = UDim2.new(0.5, 0, 0.5, 0)
+Converted[2].Parent = Converted[1]
+
+Converted[3].BottomLeftRadius = UDim.new(1, 0)
+Converted[3].BottomRightRadius = UDim.new(1, 0)
+Converted[3].CornerRadius = UDim.new(1, 0)
+Converted[3].TopLeftRadius = UDim.new(1, 0)
+Converted[3].TopRightRadius = UDim.new(1, 0)
+Converted[3].Parent = Converted[2]
+
+Converted[4].ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+Converted[4].BorderStrokePosition = Enum.BorderStrokePosition.Inner
+Converted[4].Color = Color3.new(1, 1, 1)
+Converted[4].StrokeSizingMode = Enum.StrokeSizingMode.ScaledSize
+Converted[4].Thickness = 0.07000000029802322
+Converted[4].Transparency = 0.03999999910593033
+Converted[4].Parent = Converted[2]
+
+Converted[5].Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(1, 0.615686, 0)), ColorSequenceKeypoint.new(0.629757821559906, Color3.new(0.0392157, 0.0392157, 0.0392157)), ColorSequenceKeypoint.new(1, Color3.new(0.0392157, 0.0392157, 0.0392157))})
+Converted[5].Rotation = -180
+Converted[5].Parent = Converted[4]
+
+Converted[6].Parent = Converted[5]
+
+Converted[7].Font = Enum.Font.FredokaOne
+Converted[7].RichText = true
+Converted[7].Text = "S"
+Converted[7].TextColor3 = Color3.new(1, 1, 1)
+Converted[7].TextScaled = true
+Converted[7].TextSize = 30
+Converted[7].TextTransparency = 1
+Converted[7].TextWrapped = true
+Converted[7].BackgroundColor3 = Color3.new(1, 1, 1)
+Converted[7].BackgroundTransparency = 1
+Converted[7].BorderColor3 = Color3.new(0, 0, 0)
+Converted[7].BorderSizePixel = 0
+Converted[7].Position = UDim2.new(0, 0, 0.23999999463558197, 0)
+Converted[7].Size = UDim2.new(1, 0, 1, 0)
+Converted[7].Parent = Converted[2]
+
+Converted[8].MaxTextSize = 30
+Converted[8].Parent = Converted[7]
+
+Converted[9].Name = "Manager"
+Converted[9].Parent = Converted[1]
+
+Converted[1].Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+--<[Scripts]>--
+
+--StarterGui.ScreenGui.Frame.UIStroke.UIGradient.LocalScript
+task.spawn(function()
+	script = Converted[6]
+
+	task.spawn(function()
+		while task.wait(.02) do
+			script.Parent.Rotation += 10
+		end
+	end)
+
+end)
+
+--StarterGui.ScreenGui.Manager
+task.spawn(function()
+	script = Converted[9]
+
+	local Frame = script.Parent:FindFirstChild("Frame")
+	local TextLabel = Frame:FindFirstChild("TextLabel")
+
+
+	local LoopLoader = true
+
+	Frame:TweenSizeAndPosition(
+		UDim2.new(0.037, 0,0.065, 0),
+		UDim2.new(0.481, 0,0.467, 0),
+		"Out",
+		"Quad",
+		.3
+	)
+
+	task.delay(5.2, function()
+		LoopLoader = false
+	end)
+
+	local FadeIn = function(TextLabel)
+		task.spawn(function()
+			TextLabel:TweenPosition(UDim2.new(0,0,0,0), "Out", "Quad", .3)
+		end)
+
+		task.spawn(function()
+			for i=1,100 do
+				TextLabel.TextTransparency -= 1
+				task.wait(0.1)
+			end
+		end)
+	end
+
+
+	task.delay(3, function()
+		FadeIn(TextLabel)
+	end)
+
+
+
+
+	task.spawn(function()
+		while LoopLoader == true do
+			task.wait(.02)
+			Frame.UIStroke.UIGradient.Rotation += 10
+		end
+	end)
+
+	task.delay(5, function()
+		TextLabel.TextTransparency = 1 
+		Frame:TweenSizeAndPosition(
+			UDim2.new(0,0,0,0),
+			UDim2.new(0.5,0,0.5,0),
+			"Out",
+			"Quad",
+			.3
+		)
+		task.wait(0.3)
+		Frame:Destroy()
+	end)
+
+
+	----------------------------
+
+end)
