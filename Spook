@@ -127,7 +127,6 @@ Converted[4].Transparency = 0.03999999910593033
 Converted[4].Parent = Converted[2]
 
 Converted[5].Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(1, 0.615686, 0)), ColorSequenceKeypoint.new(0.629757821559906, Color3.new(0.0392157, 0.0392157, 0.0392157)), ColorSequenceKeypoint.new(1, Color3.new(0.0392157, 0.0392157, 0.0392157))})
-Converted[5].Rotation = -180
 Converted[5].Parent = Converted[4]
 
 Converted[6].Parent = Converted[5]
