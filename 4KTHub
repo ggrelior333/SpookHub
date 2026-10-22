@@ -1,20 +1,7 @@
 local Starlight = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/starlight"))()  
 local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/nebula-icon-library-loader"))()
 
-local Window = Starlight:CreateWindow({
-    Name = "𝓮𝓮𝓮𝓮𝓮𝓮𝓮𝓮𝓮",
-    Subtitle = "v1.0",
-    Icon = 98053997301160,
-
-    LoadingSettings = {
-        Title = "My Script Hub",
-        Subtitle = "Welcome to My Script Hub",
-    },
-
-    FileSettings = {
-        ConfigFolder = "MyScript"
-    },
-})
+local Window = Starlight:CreateWindow({})
 
 local Dialog = Window:PromptDialog({
     Name = "Attention!",
@@ -25,14 +12,8 @@ local Dialog = Window:PromptDialog({
             Name = "Okay!",
             Icon = NebulaIcons:GetIcon("check", "Material"),
             Callback = function()
-
+                Starlight:Destroy()
             end
         }, 
-        {
-            Name = "Cancel",
-            Callback = function()
-
-            end
-        },
     }
 })
