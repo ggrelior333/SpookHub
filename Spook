@@ -160,11 +160,7 @@ Converted[1].Parent = game:GetService("Players").LocalPlayer:WaitForChild("Playe
 task.spawn(function()
 	script = Converted[6]
 
-	task.spawn(function()
-		while task.wait(.02) do
-			script.Parent.Rotation += 10
-		end
-	end)
+	
 
 end)
 
