@@ -1,0 +1,66 @@
+local Starlight = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/starlight"))()  
+local NebulaIcons = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/nebula-icon-library-loader"))()
+
+local Window = Starlight:CreateWindow({
+    Name = "𝓮𝓮𝓮𝓮𝓮𝓮𝓮𝓮𝓮",
+    Subtitle = "v1.0",
+    Icon = 98053997301160,
+
+    LoadingSettings = {
+        Title = "My Script Hub",
+        Subtitle = "Welcome to My Script Hub",
+    },
+
+    FileSettings = {
+        ConfigFolder = "MyScript"
+    },
+})
+
+Window:CreateHomeTab({
+    -- Logic is done this way to not immediately rule out unknown executors.
+    -- For example, if Delta is confirmed to break with your script, it can go in Unsupported.
+    -- If users use Trigon but you don't have it/unsure whether it works, it can be left out and marked as a maybe
+
+    SupportedExecutors = {"Madium"}, 
+    UnsupportedExecutors = {},
+
+    DiscordInvite = "", -- The Discord Invite Link. Do Not Include discord.gg/ | Only Include the code.
+    Backdrop = 121329693211729, -- A Custom Image to use for the backdrop. Set to 0 to use the Game's Thumbnail. Defaults To A Roblox Void. Set to a blank image to not use.  
+
+    IconStyle = 2, -- 1 for solid, 2 for outline
+
+    Changelog = {
+        -- Pass Tables For Each Update
+        
+        {
+            Title = "Currently WIP",
+            Date = "10/22/2026",
+            Description = "Still in the process of making, please be paitent.",
+        },
+        {
+            Title = "Second Update!!",
+            Date = "sometime after example update",
+            Description = "",
+        }  
+    }
+})
+
+local TabSection = Window:CreateTabSection("Tab Section")
+
+local HomeTab = TabSection:CreateTab({
+    Name = "Home",
+    Icon = NebulaIcons:GetIcon('view_in_ar', 'Material'),
+    Columns = 2,
+}, "INDEX")
+
+local SettingsTab = TabSection:CreateTab({
+    Name = "Settings",
+    Icon = NebulaIcons:GetIcon('view_in_ar', 'Material'),
+    Columns = 2,
+}, "INDEX")
+
+local CreditsTab = TabSection:CreateTab({
+    Name = "Credits",
+    Icon = NebulaIcons:GetIcon('view_in_ar', 'Material'),
+    Columns = 2,
+}, "INDEX")
