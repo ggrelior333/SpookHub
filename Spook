@@ -1,1 +1,6 @@
-print("Hello, World")
+task.wait(.02)
+local SFX = Instance.new("Sound")
+SFX.SoundId = "rbxassetid://1841825918"
+SFX:Play()
+
+SFX.Parent = game:GetService("Workspace")
