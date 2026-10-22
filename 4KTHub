@@ -16,6 +16,27 @@ local Window = Starlight:CreateWindow({
     },
 })
 
+local Dialog = Window:PromptDialog({
+    Name = "Attention!",
+    Content = "I lowk dont know how you found this script lol, but it is far from done and honestly just testing stuff, but yeah this will be a script hub eventually.",
+    Type = 1,
+    Actions = { 
+        Primary = {
+            Name = "Okay!",
+            Icon = NebulaIcons:GetIcon("check", "Material"),
+            Callback = function()
+
+            end
+        }, 
+        {
+            Name = "Cancel",
+            Callback = function()
+
+            end
+        },
+    }
+})
+
 Window:CreateHomeTab({
     -- Logic is done this way to not immediately rule out unknown executors.
     -- For example, if Delta is confirmed to break with your script, it can go in Unsupported.
