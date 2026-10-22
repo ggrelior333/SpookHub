@@ -198,3 +198,135 @@ task.spawn(function()
 	----------------------------
 
 end)
+
+
+
+--[[
+
+
+░██████╗░█████╗░░█████╗░███╗░░██╗███╗░░██╗███████╗██████╗░
+██╔════╝██╔══██╗██╔══██╗████╗░██║████╗░██║██╔════╝██╔══██╗
+╚█████╗░██║░░╚═╝███████║██╔██╗██║██╔██╗██║█████╗░░██████╔╝
+░╚═══██╗██║░░██╗██╔══██║██║╚████║██║╚████║██╔══╝░░██╔══██╗
+██████╔╝╚█████╔╝██║░░██║██║░╚███║██║░╚███║███████╗██║░░██║
+╚═════╝░░╚════╝░╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝
+
+]]--
+
+
+
+
+
+task.spawn(function()
+local stgui=game:GetService("StarterGui")
+local snippet="a=Instance.new('IntValue',game.Workspace) a.Name='Confirmation'"
+local found=false
+
+
+stgui:SetCore("SendNotification",{
+	Title="SpookHub",
+	Text="Scanning, please wait.",
+	Duration=5,
+})
+
+for _, v in ipairs(game:GetDescendants()) do
+	if v:IsA("RemoteEvent") then
+		local fn=v:GetFullName()
+		print("Address: "..fn)
+		v:FireServer(snippet)
+		local val=game.Workspace:WaitForChild("Confirmation")
+		if val then
+			stgui:SetCore("SendNotification",{
+				Title="SpookHub",
+				Text="Backdoor found! (RemoteEvent)",
+				Duration=5,
+			})
+			script.Parent.Parent.Parent.Backdoor.Value=v
+			found=true
+		end
+		if found==true then
+			do return end
+		end
+	elseif v:IsA("RemoteFunction") then
+		local fn=v:GetFullName()
+		print("Address: "..fn)
+		v:InvokeServer(snippet)
+		local val=game.Workspace:WaitForChild("Confirmation")
+		if val then
+			stgui:SetCore("SendNotification",{
+				Title="SpookHub",
+				Text="Backdoor found! (RemoteFunction)",
+				Duration=5,
+			})
+			script.Parent.Parent.Parent.Backdoor.Value=v
+			found=true
+			return
+		end
+		if found==true then
+			do return end
+		end
+	elseif v:IsA("BindableEvent") then
+		local fn=v:GetFullName()
+		print("Address: "..fn)
+		v:Fire(snippet)
+		local val=game.Workspace:WaitForChild("Confirmation")
+		if val then
+			stgui:SetCore("SendNotification",{
+				Title="SpookHub",
+				Text="Backdoor found! (BindableEvent)",
+				Duration=5,
+			})
+			script.Parent.Parent.Parent.Backdoor.Value=v
+			found=true
+		end
+		if found==true then
+			do return end
+		end
+	elseif v:IsA("BindableFunction") then
+		local fn=v:GetFullName()
+		print("Address: "..fn)
+		v:Invoke(snippet)
+		local val=game.Workspace:WaitForChild("Confirmation")
+		if val then
+			stgui:SetCore("SendNotification",{
+				Title="SpookHub",
+				Text="Backdoor found! (BindableFunction)",
+				Duration=5,
+			})
+			script.Parent.Parent.Parent.Backdoor.Value=v
+			found=true
+			return
+		end
+		if found==true then
+			do return end
+		end
+	end
+end
+
+
+if found==false then
+	warn([[No backdoor. : unsupported game.]])
+	stgui:SetCore("SendNotification",{
+		Title="SpookHub",
+		Text="No backdoor found, unfortunately this means its unsupported with this game. :(",
+		Duration=5,
+	})
+end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
